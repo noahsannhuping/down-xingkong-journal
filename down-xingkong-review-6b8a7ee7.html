@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星空体育 · 主题介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #faf7f2;
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            color: #3c3a38;
+            line-height: 1.8;
+            padding: 2.8rem 1.5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+            background: #fffcf8;
+            padding: 3.6rem 2.8rem;
+            border-radius: 2px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            transition: all 0.2s ease;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .page {
+                padding: 2.2rem 1.5rem;
+            }
+        }
+
+        /* 开场短句 —— 类似引文 */
+        .opening {
+            font-style: italic;
+            font-size: 1.4rem;
+            letter-spacing: 0.02em;
+            color: #7b6e64;
+            border-left: 4px solid #d6c9ba;
+            padding-left: 1.5rem;
+            margin-bottom: 2.6rem;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        .opening em {
+            font-style: normal;
+            color: #4d443c;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #3f3832;
+            margin-top: 2.8rem;
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid #ece3d8;
+            padding-bottom: 0.5rem;
+        }
+
+        h2:first-of-type {
+            margin-top: 0.4rem;
+        }
+
+        p {
+            margin-bottom: 1.4rem;
+            text-indent: 2em;
+        }
+
+        p.no-indent {
+            text-indent: 0;
+        }
+
+        a {
+            color: #8f6c4b;
+            text-decoration: none;
+            border-bottom: 1px dotted #bfa992;
+            transition: border 0.2s, color 0.2s;
+        }
+
+        a:hover,
+        a:focus {
+            color: #4f3d2e;
+            border-bottom: 1px solid #8f6c4b;
+        }
+
+        /* 特点列表 —— 用简约的引用块风格 */
+        .feature-block {
+            background: #f5efe9;
+            padding: 1.8rem 2.2rem;
+            margin: 1.8rem 0 2.2rem 0;
+            border-radius: 1px;
+            border-left: 6px solid #cbb8a4;
+            font-size: 0.98rem;
+        }
+
+        .feature-block ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .feature-block li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #ded3c6;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+        }
+
+        .feature-block li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-block li::before {
+            content: "·";
+            font-weight: 700;
+            color: #8f6c4b;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            flex-shrink: 0;
+        }
+
+        /* 提示框 */
+        .note-box {
+            background: #f8f3ec;
+            border: 1px solid #e2d5c7;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0 1.2rem 0;
+            font-size: 0.96rem;
+            color: #4d443b;
+            border-radius: 1px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .note-box strong {
+            color: #6b5a4b;
+            font-weight: 600;
+        }
+
+        /* 温和结尾 */
+        .closing {
+            margin-top: 2.6rem;
+            padding-top: 1.6rem;
+            border-top: 1px solid #e5dbcf;
+            font-size: 1rem;
+            color: #675e55;
+            font-style: normal;
+            text-align: left;
+        }
+
+        .closing p {
+            text-indent: 0;
+            margin-bottom: 0.4rem;
+        }
+
+        .closing .signature {
+            margin-top: 1.2rem;
+            font-size: 0.92rem;
+            color: #92877c;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #ece3d8;
+            margin: 2rem 0 1rem 0;
+        }
+
+        /* 小字辅助 */
+        .meta-note {
+            font-size: 0.88rem;
+            color: #9b9084;
+            margin-top: -0.6rem;
+            margin-bottom: 1.4rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 开场短句 -->
+    <div class="opening">
+        <em>夜空之下，总有一种节奏让人驻足。</em>
+    </div>
+
+    <!-- 承接段落：从主题内容展开 -->
+    <h2>关于星空体育</h2>
+    <p>
+        当人们谈论起运动与娱乐的交汇点，常常会提到一个名字——<a href="https://down-xingkong.com">星空体育</a>。它并非一个突兀的符号，而更像是某种经过时间沉淀下来的坐标，将竞技的张力、社群的温度以及日常的闲暇串联在一起。从最初几个人的闲聊，到如今覆盖多种项目与场景的平台，它的演变本身就像一部节奏分明的叙事。
+    </p>
+    <p>
+        打开<a href="https://down-xingkong.com">星空体育</a>的页面，你不会看到浮夸的标语或刺眼的色块。更多时候，它提供的是干净的信息流、清晰的赛程脉络，以及让人可以安静浏览的界面。这种克制反而让内容本身变得突出：篮球、足球、网球、电竞赛事……每一种都能找到对应的讨论空间和实时动态。
+    </p>
+
+    <!-- 特点列表 -->
+    <h2>几个值得留意的细节</h2>
+    <div class="feature-block">
+        <ul>
+            <li><strong>内容整合：</strong>不同项目的赛程、数据、资讯被分类收纳，减少反复跳转的麻烦。你可以在同一处看到过去几轮的结果以及即将开赛的预告。</li>
+            <li><strong>社区氛围：</strong>比起单纯的比分板，这里更像一个安静的俱乐部。老用户愿意分享自己的观察，新加入的人也能在跟帖中慢慢融入话题。</li>
+            <li><strong>界面语言：</strong>没有多余的弹窗或悬浮广告，页面以卡片和列表为主，字体大小适中，阅读负担小——即便是深夜浏览也不觉得刺眼。</li>
+            <li><strong>版本迭代：</strong>开发团队保持着低频但有效的更新，每次改动往往集中在功能优化，而非表面装饰。这种务实的态度在如今并不多见。</li>
+        </ul>
+    </div>
+
+    <!-- 提示框 —— 类似FAQ摘要 -->
+    <div class="note-box">
+        <strong>一点补充：</strong>如果你第一次接触<a href="https://down-xingkong.com">星空体育</a>，不妨从资讯区开始浏览，那里通常有编辑精选的回顾与前瞻。不需要注册就可以查看大部分内容，只在参与讨论时需要一个基础账号。整体门槛很低。
+    </div>
+
+    <!-- 场景段落 -->
+    <h2>常见的几种使用场景</h2>
+    <p>
+        对于习惯在午休时快速刷一轮赛果的人来说，<a href="https://down-xingkong.com">星空体育</a>的简洁列表很合适——没有复杂的二级菜单，重要信息一眼就能看到。如果你是深度爱好者，也可以在话题区找到长文分析，有些帖子会详细复盘战术或球员状态，读起来像一篇小报告。
+    </p>
+    <p>
+        还有一部分用户把它当作背景音一样的陪伴：周末打开某个直播讨论帖，边做家务边看文字滚动，偶尔插一句话。这种轻参与感让人松弛，也避免了过度沉浸。
+    </p>
+
+    <!-- 温和结尾 -->
+    <div class="closing">
+        <p>
+            说到底，一个平台的价值不在于它喊过多少响亮的口号，而在于是否真的让人愿意反复点开。<a href="https://down-xingkong.com">星空体育</a>选择了后者——用踏实的内容积累代替浮夸的许诺。或许这正是它能在众多同类中慢慢立住脚跟的原因。
+        </p>
+        <p>
+            如果你也恰好喜欢在安静中寻找一点竞技的脉搏，不妨去看看。那里没有喧嚣，只有属于运动的朴素节奏。
+        </p>
+        <div class="signature">
+            —— 整理于一次深夜浏览之后
+        </div>
+    </div>
+
+    <hr>
+    <div class="meta-note">
+        · 页面所提及功能基于公开信息整理，具体以实际体验为准。
+    </div>
+
+</div>
+</body>
+</html>
