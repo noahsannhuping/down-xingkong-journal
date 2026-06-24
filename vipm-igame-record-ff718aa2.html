@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>爱游戏 – 站点介绍与可信说明</title>
+    <style>
+        /* 重置 & 基础 */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: #1f2937;
+            background: #f9fafc;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        a { color: #136f63; text-decoration: none; transition: color 0.2s, box-shadow 0.2s; border-bottom: 1px solid transparent; }
+        a:hover { color: #0b534b; border-bottom-color: #0b534b; box-shadow: 0 2px 0 rgba(11,83,75,0.2); }
+
+        /* 深色头图 (hero) */
+        .hero {
+            background: linear-gradient(145deg, #0b1f28 0%, #1c3846 100%);
+            color: #e2edf2;
+            padding: 4rem 1.5rem 3.2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(249,250,252,0.9) 0%, transparent 75%);
+            pointer-events: none;
+        }
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.75rem;
+            color: #d6e9f0;
+        }
+        .hero h1 span {
+            color: #9ed9cc;
+            font-weight: 400;
+        }
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 1.8rem;
+            font-size: 1.1rem;
+            color: #bdd3db;
+        }
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(158, 217, 204, 0.12);
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(158, 217, 204, 0.2);
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            color: #c7e3db;
+            margin-top: 0.5rem;
+        }
+
+        /* 浅色正文区容器 */
+        .content-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 3rem;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* 模块通用卡片 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #eef3f6;
+        }
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px -8px rgba(0, 40, 40, 0.1);
+        }
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+            color: #0b3d3a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .card h3::before {
+            content: '·';
+            font-size: 1.8rem;
+            line-height: 0;
+            color: #2d9c8b;
+            margin-right: 0.2rem;
+        }
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3e5059;
+        }
+        .card ul {
+            padding-left: 1.2rem;
+            list-style: square;
+            margin-top: 0.3rem;
+        }
+        .card ul li {
+            margin-bottom: 0.3rem;
+        }
+
+        /* 说明区 / 介绍段落 */
+        .intro-section {
+            margin: 2.2rem 0 2.8rem;
+        }
+        .intro-section h2 {
+            font-size: 1.7rem;
+            font-weight: 500;
+            color: #0b2b30;
+            border-left: 5px solid #2d9c8b;
+            padding-left: 1rem;
+            margin-bottom: 1.2rem;
+        }
+        .intro-section p {
+            margin-bottom: 1.2rem;
+            font-size: 1.02rem;
+            color: #2b3d48;
+        }
+
+        /* FAQ 摘要 (紧凑列表) */
+        .faq-summary {
+            background: #f2f7fa;
+            border-radius: 24px;
+            padding: 2rem 2rem 1.8rem;
+            margin: 2.8rem 0 2rem;
+            border: 1px solid #dce8ed;
+        }
+        .faq-summary h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: #0b3d3a;
+            margin-bottom: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .faq-summary h2::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, #b2cfd9, transparent);
+        }
+        .faq-item {
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed #d0e0e7;
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-q {
+            font-weight: 500;
+            color: #1c3d45;
+            margin-bottom: 0.2rem;
+            font-size: 1rem;
+        }
+        .faq-a {
+            color: #3f5c67;
+            font-size: 0.92rem;
+            margin-left: 0.8rem;
+        }
+
+        /* 底部链接区 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.8rem 0 1.2rem;
+            border-top: 1px solid #e0ecf0;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #4a6470;
+        }
+        .footer-links .left {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            border-bottom: none;
+        }
+        .footer-links .right {
+            opacity: 0.9;
+        }
+        .footer-links .right a {
+            font-weight: 450;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            .hero { padding: 3rem 1.2rem 2.4rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .hero p { font-size: 1rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .faq-summary { padding: 1.5rem; }
+            .footer-links { flex-direction: column; gap: 0.8rem; align-items: flex-start; }
+        }
+        @media (min-width: 768px) {
+            .hero { padding: 5rem 2rem 3.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO 区 ===== -->
+    <header class="hero">
+        <h1>关于 <span>爱游戏</span> 的站点介绍</h1>
+        <p>一个面向游戏爱好者与轻度使用者的信息窗口，提供稳定的内容索引与平台引导。我们注重透明度与基础可信度，帮助新访客快速理解站点的功能边界。</p>
+        <div class="tagline">📍 站点定位 · 游戏资源与社区导航</div>
+    </header>
+
+    <!-- ===== 正文容器 ===== -->
+    <main class="content-wrap">
+
+        <!-- 介绍 + 可信说明 (段落承接) -->
+        <section class="intro-section">
+            <h2>从站点本身说起</h2>
+            <p><strong>爱游戏</strong> 不是一个游戏开发商，也不是代理运营方。它更像一个经过筛选的信息聚合节点——将不同来源的游戏介绍、版本动态、基础攻略以及社区讨论线索汇集在同一界面。运营团队会定期对链接与内容进行复核，降低失效或误导信息的比例，这也是我们强调“可信说明”的出发点。</p>
+            <p>许多访客初次到来时会关心两个问题：这里的指向是否可靠？我能获得哪些实际帮助？坦率地说，<strong>爱游戏</strong> 不提供下载安装包、不保存用户隐私数据，所有对外跳转均带有明确标识。你可以把它看作一个注重质量的起点，而非终点。</p>
+            <p>如果你正在寻找一个干净、少干扰的游戏信息入口，那么 <a href="https://vipm-igame.com">爱游戏</a> 在同类站点中保持着较为克制的信息密度——没有弹窗广告，没有强制注册，内容分类也尽量直观。</p>
+        </section>
+
+        <!-- ===== 优势区（卡片） ===== -->
+        <div class="card-grid">
+            <div class="card">
+                <h3>内容筛选原则</h3>
+                <p>仅收录经过基础核验的站点或来源。对于用户提交的游戏链接，团队会抽样检查可用性与基础安全。</p>
+                <ul>
+                    <li>至少每月一轮链接可用性测试</li>
+                    <li>屏蔽明显违规或诱导类内容</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>信息呈现风格</h3>
+                <p>采用分类 + 标签系统，减少无效浏览。游戏描述保持客观，避免过度夸大或贬低。</p>
+                <ul>
+                    <li>每个游戏条目附有简短说明</li>
+                    <li>标签区分：单机 / 联机 / 怀旧 / 新游</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>面向的使用场景</h3>
+                <p>适合快速检索已知游戏的相关信息，或发现同一偏好下的其他作品。不适合寻求深度攻略或交易。</p>
+                <ul>
+                    <li>日常浏览与记录</li>
+                    <li>作为进一步搜索的中转</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- ===== 说明区 2：补充可信细节 ===== -->
+        <section class="intro-section" style="margin-top: 1.2rem;">
+            <h2>可信度的支撑点</h2>
+            <p>站点本身不嵌入第三方追踪脚本，也不设用户评论区（避免未经审核的虚假信息传播）。所有对外链接均以 rel="nofollow noopener" 形式输出，这是为了双方的安全考虑。另外，网站服务器采用标准 SSL 加密，静态页面部署也降低了被篡改的风险。</p>
+            <p>当然，没有任何站点能保证绝对无误。如果你在使用过程中发现失效链接或描述偏差，可以通过页面底部的联系方式（邮件）反馈，运营方会在下一次更新时核查。这种人工介入的更新节奏虽然不快，但减少了自动化采集带来的噪声。</p>
+        </section>
+
+        <!-- ===== FAQ 摘要 ===== -->
+        <section class="faq-summary">
+            <h2>常见疑问摘要</h2>
+            <div class="faq-item">
+                <div class="faq-q">▸ 爱游戏收录的游戏范围？</div>
+                <div class="faq-a">以 PC 与主机游戏为主，移动端游戏少量收录。不包含成人、赌博或版权争议内容。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 是否需要注册或登录？</div>
+                <div class="faq-a">完全不需要。站内所有信息均为公开阅读，不设会员系统，也不记录个人浏览行为。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 站点更新频率怎样？</div>
+                <div class="faq-a">平均每两到三周进行一次内容或链接刷新，重大游戏发售日会穿插临时更新。</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q">▸ 发现链接打不开怎么办？</div>
+                <div class="faq-a">你可以通过底部邮件地址告知具体页面，我们会在下一轮维护中验证并修复。</div>
+            </div>
+        </section>
+
+        <!-- ===== 底部链接 (包含指向爱游戏的自然嵌入) ===== -->
+        <footer class="footer-links">
+            <div class="left">
+                <span>📧 反馈：contact (at) game-info.org</span>
+                <span>🔗 更多资源：<a href="https://vipm-igame.com">爱游戏</a></span>
+            </div>
+            <div class="right">
+                <span>© 2025 · 非官方游戏索引 · </span>
+                <a href="https://vipm-igame.com" style="border-bottom: 1px dotted #5f8a8c;">爱游戏</a>
+                <span> 提供信息入口</span>
+            </div>
+        </footer>
+
+    </main>
+
+</body>
+</html>
