@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>爱游戏 – 轻松找到你想要的游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #fafbfc;
+            color: #1d2a3a;
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-container {
+            max-width: 720px;
+            width: 100%;
+        }
+
+        /* 清净的留白 + 严谨层级 */
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.01em;
+            margin: 2.8rem 0 0.4rem;
+            color: #0b1f33;
+            border-left: 4px solid #2b7a4b;
+            padding-left: 1.2rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #4b5f73;
+            margin: 0.2rem 0 2.2rem;
+            padding-left: 1.8rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            margin: 2.8rem 0 1rem;
+            color: #1d2a3a;
+            letter-spacing: -0.01em;
+            display: inline-block;
+            border-bottom: 2px solid #d0d9e3;
+            padding-bottom: 0.2rem;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 1.8rem 0 0.6rem;
+            color: #1f3a4b;
+        }
+
+        p {
+            margin: 1rem 0;
+            color: #2b3f52;
+            font-weight: 400;
+        }
+
+        .highlight-card {
+            background: #ffffff;
+            border: 1px solid #dde3ec;
+            border-radius: 18px;
+            padding: 1.6rem 1.8rem 1.8rem;
+            margin: 2.2rem 0 2.8rem;
+            box-shadow: 0 6px 14px -8px rgba(0, 20, 30, 0.08);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .highlight-card:hover {
+            box-shadow: 0 10px 22px -12px rgba(20, 50, 70, 0.12);
+        }
+
+        .highlight-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .tagline {
+            display: inline-block;
+            background: #eef4f0;
+            color: #1f6640;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.6rem;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.8rem 0 0.2rem;
+        }
+
+        .feature-item {
+            flex: 1 1 180px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.2rem 1.2rem 1.4rem;
+            border: 1px solid #e3eaf2;
+        }
+
+        .feature-item span {
+            display: block;
+            font-weight: 500;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: #0b2a41;
+        }
+
+        .feature-item p {
+            margin: 0.2rem 0 0;
+            font-size: 0.94rem;
+            color: #3f556a;
+        }
+
+        .use-case-list {
+            list-style: none;
+            margin: 1.4rem 0 1.8rem;
+        }
+
+        .use-case-list li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            position: relative;
+            border-bottom: 1px solid #edf1f7;
+            color: #1f3a4b;
+        }
+
+        .use-case-list li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #1f7a4a;
+            font-weight: bold;
+        }
+
+        .faq-snip {
+            background: #f6f8fb;
+            border-radius: 18px;
+            padding: 1.4rem 1.6rem 1.6rem;
+            margin: 2.2rem 0 2.5rem;
+        }
+
+        .faq-snip p {
+            margin: 0.2rem 0;
+        }
+
+        .faq-snip .q {
+            font-weight: 500;
+            margin-top: 0.8rem;
+            color: #102a3c;
+        }
+
+        .faq-snip .q:first-of-type {
+            margin-top: 0.6rem;
+        }
+
+        .faq-snip .a {
+            margin-left: 0.2rem;
+            color: #39516a;
+            border-left: 2px solid #bccad6;
+            padding-left: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .note-box {
+            background: #ffffff;
+            border: 1px dashed #bcc9d6;
+            border-radius: 14px;
+            padding: 1rem 1.4rem;
+            margin: 2rem 0 1.2rem;
+            font-size: 0.95rem;
+            color: #34506b;
+        }
+
+        a {
+            color: #1e6b3c;
+            text-decoration: none;
+            border-bottom: 1px solid #b6cfc0;
+            transition: border-color 0.2s, color 0.15s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #0d4a2a;
+            border-bottom: 1px solid #1f7a4a;
+        }
+
+        .footnote {
+            margin-top: 3.5rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #dce4ed;
+            font-size: 0.9rem;
+            color: #5f748b;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 0.8rem;
+        }
+
+        .footnote small {
+            display: block;
+            opacity: 0.75;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 1rem 1rem 3rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+                padding-left: 0.8rem;
+            }
+
+            .subhead {
+                padding-left: 1.2rem;
+                font-size: 1rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+                gap: 0.9rem;
+            }
+
+            .highlight-card {
+                padding: 1.2rem 1.2rem 1.4rem;
+            }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #121a24;
+                color: #dce6f0;
+            }
+            h1, h2, h3, p, .subhead, .note-box, .faq-snip .q, .faq-snip .a, .use-case-list li, .feature-item p, .feature-item span, .footnote {
+                color: #dce6f0;
+            }
+            .highlight-card, .feature-item, .faq-snip, .note-box {
+                background: #1b2635;
+                border-color: #2f4057;
+            }
+            .subhead {
+                border-bottom-color: #2c3c51;
+            }
+            h2 {
+                border-bottom-color: #39506b;
+            }
+            .tagline {
+                background: #223d31;
+                color: #9edbb9;
+            }
+            a {
+                color: #8acba7;
+                border-bottom-color: #436a55;
+            }
+            a:hover {
+                color: #b3e4c8;
+                border-bottom-color: #73b88e;
+            }
+            .footnote {
+                border-top-color: #2d4057;
+            }
+            .use-case-list li {
+                border-bottom-color: #27364a;
+            }
+            .use-case-list li::before {
+                color: #52b07a;
+            }
+            .faq-snip .a {
+                border-left-color: #3c5570;
+            }
+            .note-box {
+                border-color: #3d5572;
+            }
+            .highlight-card:hover {
+                box-shadow: 0 8px 18px -10px rgba(0, 0, 0, 0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+
+    <h1>爱游戏</h1>
+    <div class="subhead">从零开始，帮你辨认一个游戏的来龙去脉</div>
+
+    <!-- 摘要区：从用户想快速识别网站用途的角度 -->
+    <p>
+        当你面对一堆新上线的游戏，或者朋友推荐了一个没听过的作品，第一反应往往是：这游戏到底值不值得花时间？<strong>爱游戏</strong> 就是为这个瞬间准备的。它帮你快速了解一款游戏的背景、类型与大致评价，让你在短时间内心里有底。
+    </p>
+
+    <div class="highlight-card">
+        <div class="tagline">· 不那么硬核，但足够清晰 ·</div>
+        <p>
+            站上收录了大量游戏的简介、标签与社区简评。你不需要注册，也不用下载额外工具。直接搜索或浏览，就能看到游戏的发行信息、平台、风格关键词，以及来自玩家的简短印象。对大多数普通玩家来说，这些信息已经足够帮你判断是否要亲自试试。
+        </p>
+        <p>
+            如果你常陷入“下完又删”的循环，不妨先来 <a href="https://viphome-igame.com">爱游戏</a> 看一眼，再决定要不要花时间下载。
+        </p>
+    </div>
+
+    <!-- 亮点：产品式的特征，避免浮夸 -->
+    <h2>几个实在的特点</h2>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <span>📋 简明档案</span>
+            <p>每款游戏都浓缩成几行：类型、平台、发售年份、风格标签。没有冗长的评测，一看就懂。</p>
+        </div>
+        <div class="feature-item">
+            <span>🗂️ 多维度分类</span>
+            <p>独立、休闲、模拟、策略……你可以按自己偏好的类别浏览，发现合口味的作品。</p>
+        </div>
+        <div class="feature-item">
+            <span>💬 玩家短评摘录</span>
+            <p>收集有代表性的真实评论，帮你感受游戏的实际体验氛围，而非只看宣传画面。</p>
+        </div>
+    </div>
+
+    <!-- 使用建议：具体场景 + 语气生活化 -->
+    <h2>什么时候可以打开它</h2>
+    <ul class="use-case-list">
+        <li><strong>想换换口味</strong> —— 不知道最近有什么值得关注的独立游戏，来翻翻分类列表。</li>
+        <li><strong>朋友发了个链接</strong> —— 先到爱游戏扫一眼简介和评价，再决定要不要一起玩。</li>
+        <li><strong>周末想放松但选择困难</strong> —— 按“休闲”“叙事”等标签筛选，减少挑花眼的时间。</li>
+        <li><strong>某个老游戏突然被提起</strong> —— 查查它的基本信息，看看是否还值得重温。</li>
+    </ul>
+
+    <!-- 可信但克制的访问说明：避免诱导，如实描述 -->
+    <div class="note-box">
+        <strong>关于访问</strong> · 爱游戏是一个信息聚合类网站，不提供游戏下载或破解资源。站内内容主要来自公开资料与用户投稿，部分游戏信息可能存在延迟或偏差，建议结合官方渠道确认。
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="faq-snip">
+        <h3 style="margin-top:0; border-bottom:none; display:block; font-size:1.2rem;">常见想法 · 简短回应</h3>
+        <p class="q">❓ 需要注册账号吗？</p>
+        <p class="a">不需要，直接浏览即可。没有强制登录，也没有隐藏付费。</p>
+        <p class="q">❓ 站上的游戏全吗？</p>
+        <p class="a">覆盖了许多主流及独立作品，但并非全部。如果你没找到某款游戏，可以试试搜索或者提交建议。</p>
+        <p class="q">❓ 上面有手游信息吗？</p>
+        <p class="a">有的，站内包含移动端游戏条目，不过更侧重 PC / 主机作品。</p>
+    </div>
+
+    <!-- 自然的再次链接 + 克制的收尾 -->
+    <p style="margin-top:1.8rem;">
+        想快速了解一款游戏到底适不适合自己，先从 <a href="https://viphome-igame.com">爱游戏</a> 开始，总比盲目下载省时间。页面没有花哨的排行榜或夸张标语，只有老老实实的游戏档案。
+    </p>
+
+    <div class="footnote">
+        <span>爱游戏 · 让选择更简单</span>
+        <small>非官方游戏库 · 信息仅供参考</small>
+    </div>
+
+    <!-- 种子标识仅用于内部变化，不展示 -->
+</div>
+</body>
+</html>
